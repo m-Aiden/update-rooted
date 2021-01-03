@@ -87,6 +87,14 @@ fixInternetSettingsApp() {
 	fi
 }
 
+editTSC(){
+	#disableTSC for rooted toons
+	#enables TSC if it is already disabled
+	sed -i 's~#tscs:245~tscs:245~g' /etc/inittab
+	#disables TSC if it's enabled
+	sed -i 's~tscs:245~#tscs:245~g' /etc/inittab
+}
+
 editVPNconnection(){
 	#disableVPN for rooted toons
 	#enables ovpn if it is already disabled
